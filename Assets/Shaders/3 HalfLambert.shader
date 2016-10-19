@@ -45,7 +45,7 @@ Shader "Custom/HalfLambert"
 			{
 				float3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz;
 				float3 worldLight = normalize(_WorldSpaceLightPos0.xyz);
-				// 去掉了逐像素光照的 saturate 计算
+				// 注意：去掉了逐像素光照的 saturate 计算
 				float3 halfLambert = dot(i.worldNormal, worldLight) * 0.5 + 0.5;
 				float3 diffuse = _LightColor0.rgb * _Diffuse.rgb * halfLambert;
 				fixed3 color = ambient + diffuse;
